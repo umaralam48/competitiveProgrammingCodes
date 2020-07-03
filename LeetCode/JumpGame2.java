@@ -1,6 +1,5 @@
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.util.HashMap;
 import java.util.Scanner;
 
 public class JumpGame2 {
@@ -17,28 +16,25 @@ public class JumpGame2 {
     }
 
     public static int jump(int[] A) {
-        return jump(A, 0);
+        int prevstop = 0, max = 0, jumps = 0;
+        for (int i = 0; i < A.length - 1; i++) {
+            if (i == prevstop) {
+                jumps++;
+                prevstop = Math.max(max, prevstop + A[i]);
+                max = prevstop;
+            }
+            max = Math.max(max, i + A[i]);
+        }
+        return jumps;
     }
-
-    static HashMap<Integer, Integer> map = new HashMap<>();
-
-    private static int jump(int[] a, int i) {
-        if (i == a.length - 1) {
-            return 0;
-        }
-        if (a[i] >= a.length - i - 1)
-            return 1;
-        if (map.containsKey(i)) {
-            return map.get(i);
-        }
-        int min = Integer.MAX_VALUE - 1;
-        for (int j = 1; j <= a[i]; j++) {
-            min = Math.min(min, 1 + jump(a, i + j));
-            map.put(i, min);
-            if (min == 2)
-                return min;
-        }
-        return min;
-    }
+    /*
+     * static HashMap<Integer, Integer> map = new HashMap<>();
+     * 
+     * private static int jump(int[] a, int i) { if (i == a.length - 1) { return 0;
+     * } if (a[i] >= a.length - i - 1) return 1; if (map.containsKey(i)) { return
+     * map.get(i); } int min = Integer.MAX_VALUE - 1; for (int j = 1; j <= a[i];
+     * j++) { min = Math.min(min, 1 + jump(a, i + j)); map.put(i, min); if (min ==
+     * 2) return min; } return min; }
+     */
 
 }
