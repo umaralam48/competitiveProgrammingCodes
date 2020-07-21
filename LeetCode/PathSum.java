@@ -1,6 +1,6 @@
 public class PathSum {
     public static void main(String[] args) {
-        System.out.println(mPathSum(createTree(null, 0), 5));
+        // System.out.println(mPathSum(createTree(null, 0), 5));
     }
 
     public static TreeNode createTree(int[] ar, int i) {
@@ -23,24 +23,13 @@ public class PathSum {
         } else
             return mPathSum(root.left, sum - root.val) || mPathSum(root.right, sum - root.val);
     }
-}
 
-class TreeNode {
-
-    int val;
-    TreeNode left;
-    TreeNode right;
-
-    TreeNode() {
-    }
-
-    TreeNode(int val) {
-        this.val = val;
-    }
-
-    TreeNode(int val, TreeNode left, TreeNode right) {
-        this.val = val;
-        this.left = left;
-        this.right = right;
+    public static TreeNode createTree(Integer[] ar, int i) {
+        if (i >= ar.length || ar[i] == null)
+            return null;
+        TreeNode root = new TreeNode(ar[i]);
+        root.left = createTree(ar, 2 * i + 1);
+        root.right = createTree(ar, 2 * i + 2);
+        return root;
     }
 }
