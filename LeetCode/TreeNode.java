@@ -17,7 +17,11 @@ public class TreeNode {
         this.right = right;
     }
 
-    public static TreeNode createTree(Integer[] ar, int i) {
+    public static TreeNode createTree(Integer[] ar) {
+        return createTree(ar, 0);
+    }
+
+    private static TreeNode createTree(Integer[] ar, int i) {
         if (i >= ar.length)
             return null;
         TreeNode root = new TreeNode(ar[i]);

@@ -4,7 +4,7 @@ import java.util.LinkedList;
 public class MaxWidthOfBinaryTree {
     public static void main(String[] args) {
         Integer ar[] = { 1, 3, 2, 5, 3, null, 9 };
-        TreeNode root = TreeNode.createTree(ar, 0);
+        TreeNode root = TreeNode.createTree(ar);
         System.out.println(widthOfBinaryTree(root));
     }
 
