@@ -13,5 +13,7 @@ public class check {
         // int m = scanner.nextInt();
         // System.out.println(m);
         // scanner.close();
+        String s = "/api/auth/kjkj";
+        System.out.print(s.matches("/api/auth/.*"));
     }
 }
