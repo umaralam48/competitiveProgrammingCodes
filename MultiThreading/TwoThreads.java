@@ -5,8 +5,8 @@ public class TwoThreads {
         Thread t2 = new Thread(foo, "T2");
         // prints main is running while for t1.start() both threads run with their
         // names.
-        t1.run();
-        t2.run();
+        t1.start();
+        t2.start();
 
     }
 }

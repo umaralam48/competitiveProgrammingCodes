@@ -22,7 +22,7 @@ public class TreeNode {
     }
 
     private static TreeNode createTree(Integer[] ar, int i) {
-        if (i >= ar.length)
+        if (i >= ar.length || ar[i] == null)
             return null;
         TreeNode root = new TreeNode(ar[i]);
         root.left = createTree(ar, 2 * i + 1);
